@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Portfolio of Harsh Vishwakarma, a frontend developer specializing in premium, minimalist web design and high-end agency projects in Gurgaon.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh Vishwakarma | Frontend Developer & UI Designer</title>
+  <link rel="icon" type="image/png" href="https://img.icons8.com/pulsar-line/48/parse-from-clipboard.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Dancing+Script:wght@700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #F2EFE9;
+      --cream-dark: #E8E4DC;
+      --ink: #1a1a18;
+      --ink-soft: #3a3a38;
+      --accent: #c0392b;
+      --rule: #1a1a18;
+      --serif-display: 'Anton', sans-serif;
+      --serif-sub: 'Oswald', sans-serif;
+      --script: 'Dancing Script', cursive;
+      --body: 'DM Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      /* Adds full-screen snapping effect */
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: var(--body);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── BASE FULL SCREEN SLIDE ── */
+    .slide {
+      width: 100vw;
+      min-height: 100vh;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: start;
+      /* Snaps to top of each section */
+      padding: 2rem;
+    }
+
+    /* ══════════════════════════
+       SLIDE 1 — HERO
+    ══════════════════════════ */
+    #slide-hero {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .brush {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .brush-tl {
+      top: 0;
+      left: 0;
+      width: clamp(150px, 22vw, 400px);
+    }
+
+    .brush-br {
+      bottom: 0;
+      right: 0;
+      width: clamp(150px, 22vw, 400px);
+      transform: rotate(180deg);
+    }
+
+    .brush-tr {
+      top: 0;
+      right: 0;
+      width: clamp(80px, 10vw, 200px);
+    }
+
+    .brush svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .x-grid {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+      margin-bottom: 2rem;
+    }
+
+    .x-row {
+      display: flex;
+      gap: .5rem;
+      justify-content: center;
+    }
+
+    .x-mark {
+      font-family: var(--serif-sub);
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-weight: 600;
+      color: var(--ink);
+      opacity: .55;
+      line-height: 1;
+    }
+
+    .hero-title {
+      font-family: var(--serif-display);
+      font-size: clamp(4rem, 12vw, 10rem);
+      letter-spacing: .04em;
+      line-height: 1;
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      width: 50%;
+      max-width: 400px;
+    }
+
+    .timeline-bar span {
+      font-family: var(--serif-sub);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      letter-spacing: .12em;
+      opacity: .75;
+    }
+
+    .timeline-line {
+      flex: 1;
+      height: 1px;
+      background: var(--ink);
+      opacity: .55;
+    }
+
+    /* ══════════════════════════
+       SLIDE 2 — ABOUT
+    ══════════════════════════ */
+    #slide-about {
+      flex-direction: row;
+      padding: 5% 10%;
+      gap: 5%;
+    }
+
+    .browser-frame {
+      flex: 1;
+      border: 2px solid var(--ink-soft);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      max-width: 600px;
+    }
+
+    .browser-bar {
+      background: #e5e5e5;
+      padding: .8rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-r {
+      background: #ff5f57;
+    }
+
+    .dot-y {
+      background: #febc2e;
+    }
+
+    .dot-g {
+      background: #28c840;
+    }
+
+    .browser-url {
+      font-size: .8rem;
+      color: #888;
+      margin-left: .5rem;
+    }
+
+    .browser-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #a0b0a0 0%, #7a8e7a 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .silhouette {
+      width: 55%;
+      height: 90%;
+      background: rgba(255, 255, 255, .18);
+      border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+      position: relative;
+    }
+
+    .silhouette::before {
+      content: '';
+      position: absolute;
+      top: -28%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 42%;
+      aspect-ratio: 1;
+      background: rgba(255, 255, 255, .25);
+      border-radius: 50%;
+    }
+
+    .about-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-heading {
+      font-family: var(--serif-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+    }
+
+    .about-sub {
+      font-family: var(--serif-display);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-body {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .contact-label {
+      font-family: var(--serif-sub);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      margin-bottom: .8rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      border-top: 1px solid var(--ink);
+      padding-top: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: clamp(.9rem, 1.2vw, 1.1rem);
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+
+    /* ══════════════════════════
+       SPLIT LAYOUT (SLIDES 4, 5, 6, 7)
+    ══════════════════════════ */
+    .split-slide {
+      padding: 0;
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .split-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10%;
+      position: relative;
+    }
+
+    .split-visual {
+      flex: 1;
+      display: flex;
+      gap: 5px;
+      padding: 5px;
+    }
+
+    /* ══════════════════════════
+       SLIDE 3 — SKILLS
+    ══════════════════════════ */
+    #slide-skills {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .skills-script {
+      font-family: var(--script);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--accent);
+    }
+
+    .skills-heading {
+      font-family: var(--serif-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 2rem;
+    }
+
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .skills-list li {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      color: var(--ink-soft);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    /* ══════════════════════════
+       SLIDE 4 — DESIGNER
+    ══════════════════════════ */
+    .designer-imgs {
+      flex-direction: row;
+    }
+
+    .dimg-ph {
+      flex: 1;
+      height: 100%;
+      border-radius: 4px;
+    }
+
+    .dimg-ph:nth-child(1) {
+      background: linear-gradient(160deg, #2c3e50, #4a00e0);
+    }
+
+    .dimg-ph:nth-child(2) {
+      background: linear-gradient(160deg, #f7971e, #ffd200);
+    }
+
+    .dimg-ph:nth-child(3) {
+      background: linear-gradient(160deg, #134e5e, #71b280);
+    }
+
+    .section-script {
+      font-family: var(--script);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--ink);
+    }
+
+    .section-heading {
+      font-family: var(--serif-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .by-label {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════
+       SLIDE 5 — TYPOGRAPHY (Now Projects)
+    ══════════════════════════ */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding: 20px;
+      align-content: center;
+      height: 100%;
+    }
+
+    .sg-ph {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .sg-ph:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .sg-ph:nth-child(3) {
+      grid-column: 1 / 3;
+      width: 85%;
+      justify-self: center;
+    }
+
+    /* ══════════════════════════
+       SLIDE 6 — PHOTO
+    ══════════════════════════ */
+    .photo-strip {
+      display: flex;
+      gap: 5px;
+    }
+
+    .ps-col {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex: 1;
+    }
+
+    .ps-ph {
+      flex: 1;
+      border-radius: 4px;
+    }
+
+    .ps-ph:nth-child(1) {
+      background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
+    }
+
+    .ps-ph:nth-child(2) {
+      background: linear-gradient(160deg, #f7971e, #ffd200);
+    }
+
+    .ps-ph:nth-child(3) {
+      background: linear-gradient(160deg, #c94b4b, #4b134f);
+    }
+
+    .ps-ph:nth-child(4) {
+      background: linear-gradient(160deg, #24c6dc, #514a9d);
+    }
+
+    .ps-ph:nth-child(5) {
+      background: linear-gradient(160deg, #4ca1af, #c4e0e5);
+    }
+
+    .ps-ph:nth-child(6) {
+      background: linear-gradient(160deg, #f7971e, #ffd200);
+    }
+
+    /* ══════════════════════════
+       SLIDE 7 — VIDEO
+    ══════════════════════════ */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 5px;
+    }
+
+    .vg-ph {
+      border-radius: 4px;
+    }
+
+    .vg-ph:nth-child(1) {
+      background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+    }
+
+    .vg-ph:nth-child(2) {
+      background: linear-gradient(135deg, #1a1a2e 0%, #e94560 100%);
+    }
+
+    .vg-ph:nth-child(3) {
+      background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+    }
+
+    .vg-ph:nth-child(4) {
+      background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+    }
+
+    /* ══════════════════════════
+       SLIDE 8 — THANK YOU
+    ══════════════════════════ */
+    #slide-thankyou {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .ty-top-badge {
+      font-family: var(--serif-sub);
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      letter-spacing: .18em;
+      opacity: .5;
+      margin-bottom: 1rem;
+    }
+
+    .ty-rainbow {
+      display: flex;
+      gap: .5rem;
+      margin-bottom: 2rem;
+      justify-content: center;
+    }
+
+    .ty-bar {
+      height: 6px;
+      width: clamp(30px, 5vw, 60px);
+      border-radius: 4px;
+    }
+
+    .ty-heading {
+      font-family: var(--serif-display);
+      font-size: clamp(4rem, 10vw, 8rem);
+      letter-spacing: .08em;
+      line-height: 1;
+    }
+
+    .ty-rule {
+      width: 40%;
+      max-width: 400px;
+      height: 2px;
+      background: var(--ink);
+      opacity: .35;
+      margin: 2rem auto;
+    }
+
+    .ty-contact-row {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: var(--ink-soft);
+      flex-wrap: wrap;
+    }
+
+    /* ANIMATION */
+    .slide {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════════════════════
+       RESPONSIVE DESIGN (MOBILE)
+    ══════════════════════════ */
+   /* ===== LEAD GEN BENTO GRID ===== */
+.lead-bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 180px;
+  gap: 16px;
+  width: 100%;
+  padding: 20px;
+}
+
+.lead-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+  overflow: hidden; /* ADD THIS — prevents text bleed */
+}
+
+.lead-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.lead-large { grid-column: span 8; }
+.lead-medium { grid-column: span 4; }
+.lead-tall { grid-column: span 4; grid-row: span 2; }
+
+.lead-card h3 {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.lead-card p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.lead-highlight { color: var(--accent); }
+
+.lead-stat {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.lead-badge {
+  font-size: 0.7rem;
+  background: rgba(192,57,43,0.1);
+  color: var(--accent);
+  padding: 5px 10px;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+/* ===== HIDE ALL SCROLLBARS ===== */
+::-webkit-scrollbar { display: none; }
+html { scrollbar-width: none; }
+body { -ms-overflow-style: none; }
+
+.profile-png {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This crops the image to fill the space without stretching it */
+  display: block;
+}
+
+
+/* ══════════════════════════
+   RESPONSIVE — 900px
+══════════════════════════ */
+@media (max-width: 900px) {
+  #slide-about {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .browser-frame { max-width: 100%; width: 100%; }
+  .contact-row { justify-content: center; }
+  .about-body { margin-left: auto; margin-right: auto; }
+
+  .split-slide {
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .split-content {
+    padding: 2.5rem 2rem 1.5rem;
+    text-align: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
+  .split-visual {
+    flex: 1 1 auto;
+    min-height: auto;
+    padding: 8px;
+    overflow: visible;
+  }
+
+  /* Bento: clean 2-col, NO span overrides */
+  .lead-bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  /* Kill ALL desktop spans */
+  .lead-large,
+  .lead-medium,
+  .lead-tall {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  /* Data Quality card spans full width */
+  .lead-large {
+    grid-column: span 2 !important;
+  }
+
+  .lead-card {
+    padding: 16px;
+    min-height: 110px;
+  }
+
+  .lead-card p { font-size: 1rem; }
+  .lead-stat { font-size: 2rem; }
+
+  /* Story grid: single column */
+  .story-grid {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .sg-ph:nth-child(3) {
+    grid-column: 1;
+    width: 100%;
+  }
+
+   .browser-img {
+    height: 320px;
+    aspect-ratio: unset;
+    padding: 0;        /* remove any padding */
+    margin: 0;         /* remove any margin */
+    line-height: 0;    /* kills inline gap */
+    display: block;    /* no inline whitespace */
+  }
+
+  .profile-png {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;    /* this is the key — removes the bottom inline gap */
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* ══════════════════════════
+   RESPONSIVE — sub 500px
+══════════════════════════ */
+@media (max-width: 499px) {
+  .slide { padding: 1rem; }
+
+  .hero-title { font-size: clamp(3rem, 18vw, 5rem); }
+
+  .split-content { padding: 1.8rem 1rem 1rem; }
+
+  .section-heading { font-size: clamp(2rem, 10vw, 3rem); }
+
+  .about-heading,
+  .about-sub { font-size: clamp(1.8rem, 8vw, 3rem); }
+
+  .about-body { font-size: 0.95rem; }
+
+  .skills-heading { font-size: clamp(2.5rem, 12vw, 4rem); }
+
+  .ty-heading { font-size: clamp(3rem, 16vw, 6rem); }
+
+  .ty-top-badge { font-size: 0.7rem; letter-spacing: .08em; }
+
+  .timeline-bar { width: 80%; }
+
+  .ty-contact-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+
+    
+  }
+
+  /* Bento goes fully single column below 500px */
+  .lead-bento {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .lead-large,
+  .lead-medium,
+  .lead-tall {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .lead-card { padding: 14px; min-height: unset; }
+  .lead-stat { font-size: 1.8rem; }
+  .lead-card p { font-size: 0.95rem; }
+}
+
+/* ===== HIDE ALL SCROLLBARS ===== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* IE / old Edge */
+body {
+  -ms-overflow-style: none;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ── SLIDE 1: HERO ── -->
+  <section class="slide" id="slide-hero">
+    <div class="brush brush-tl">
+      <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-10 0 Q40 20 80 10 Q120 0 160 30 Q140 50 100 45 Q60 40 30 60 Q10 75 -5 100 Z" fill="#1a1a18"
+          opacity=".82" />
+        <path d="M0 0 Q25 30 10 70 Q-5 110 20 130 Q5 120 -10 80 Z" fill="#1a1a18" opacity=".6" />
+      </svg>
+    </div>
+    <div class="brush brush-br">
+      <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-10 0 Q40 20 80 10 Q120 0 160 30 Q140 50 100 45 Q60 40 30 60 Q10 75 -5 100 Z" fill="#1a1a18"
+          opacity=".82" />
+        <path d="M0 0 Q25 30 10 70 Q-5 110 20 130 Q5 120 -10 80 Z" fill="#1a1a18" opacity=".6" />
+      </svg>
+    </div>
+
+    <div class="x-grid">
+      <div class="x-row"><span class="x-mark">×</span><span class="x-mark">×</span><span class="x-mark">×</span><span
+          class="x-mark">×</span><span class="x-mark">×</span><span class="x-mark">×</span></div>
+      <div class="x-row"><span class="x-mark">×</span><span class="x-mark">×</span><span class="x-mark">×</span><span
+          class="x-mark">×</span><span class="x-mark">×</span><span class="x-mark">×</span></div>
+    </div>
+
+    <h1 class="hero-title">PORTFOLIO</h1>
+
+    <div class="timeline-bar">
+      <span>2026</span>
+      <div class="timeline-line"></div>
+      <span>PRESENT</span>
+    </div>
+  </section>
+
+  <!-- ── SLIDE 2: ABOUT ── -->
+  <section class="slide" id="slide-about">
+    <div class="browser-frame">
+      <div class="browser-bar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <span class="browser-url">about.me</span>
+      </div>
+      <div class="browser-img">
+        <img src="images/About.png" alt="About Me Image" class="profile-png">
+      </div>
+    </div>
+
+    <div class="about-text">
+      <h2 class="about-heading">ABOUT ME</h2>
+      <h2 class="about-sub">HARSH</h2>
+      <p class="about-body">Hi, I'm Harsh. I'm a frontend developer with a passion for crafting clean, high-performance
+        web experiences. Having founded and grown my own digital agency, DragoCodes, I bring both technical expertise
+        and a strong, business-focused product mindset to my code. I recently relocated to Gurugram and am looking for a
+        full-time role where I can help build scalable, premium interfaces.</p>
+      <p class="contact-label">Contact me</p>
+      <div class="contact-row">
+        <div class="contact-item">
+          <!-- Phone SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+            </path>
+          </svg>
+          +91 99816 58520
+        </div>
+
+        <div class="contact-item">
+          <!-- Instagram SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          @ft.hxrsh_
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SLIDE 3: SKILLS ── -->
+  <section class="slide" id="slide-skills">
+    <span class="skills-script">Tech</span>
+    <h3 class="skills-heading">STACK</h3>
+    <ul class="skills-list">
+      <li><strong>Languages:</strong> Python, JavaScript</li>
+      <li><strong>Web Development:</strong> React, Tailwind CSS, HTML5/CSS3</li>
+      <li><strong>Tools:</strong> Git, VS Code, Figma (for design-to-code)</li>
+    </ul>
+  </section>
+
+  <!-- ── SLIDE 5: TYPOGRAPHY ── -->
+  <section class="slide split-slide" id="slide-typography">
+    <div class="split-content">
+      <span class="section-script">Frontend</span>
+      <h3 class="section-heading">WEB DEVELOPMENT</h3>
+    </div>
+    <div class="split-visual story-grid">
+      <img class="sg-ph" src="images/dragocodes.png" alt="Project 1">
+      <img class="sg-ph" src="images/re.png" alt="Project 2">
+      <img class="sg-ph" src="images/bb.png" alt="Project 3">
+    </div>
+  </section>
+
+  <!-- ── SLIDE 6: PHOTO ── -->
+  <section class="slide split-slide" id="slide-photo">
+    <div class="split-content">
+      <span class="section-script">Qualified</span>
+      <h3 class="section-heading">LEAD<br>GENERATION</h3>
+    </div>
+    <div class="split-visual">
+  <div class="lead-bento">
+
+    <!-- Large -->
+    <div class="lead-card lead-large">
+      <h3>Data Quality</h3>
+      <p>Replacing bulk lists with <span class="lead-highlight">verified, active contacts.</span></p>
+      <div class="lead-badge">99.8% Accuracy</div>
+    </div>
+
+    <!-- Medium -->
+    <div class="lead-card lead-medium">
+      <h3>Access</h3>
+      <p>Direct outreach. No gatekeepers.</p>
+    </div>
+
+    <!-- Tall -->
+    <div class="lead-card lead-tall">
+      <h3>Performance</h3>
+      <div>
+        <div class="lead-stat">98%</div>
+        <p>High deliverability using <span class="lead-highlight">automation.</span></p>
+      </div>
+    </div>
+
+    <!-- Dark card -->
+    <div class="lead-card lead-medium" style="background:#1a1a18;color:white;">
+      <h3 style="color:#aaa;">Tech Stack</h3>
+      <p>Python + Data Scraping Logic</p>
+    </div>
+
+    <!-- Medium -->
+    <div class="lead-card lead-medium">
+      <h3>Freshness</h3>
+      <p><span class="lead-highlight">Real-time data.</span> No stale leads.</p>
+    </div>
+
+  </div>
+</div>
+  </section>
+
+  <!-- ── SLIDE 8: THANK YOU ── -->
+  <section class="slide" id="slide-thankyou">
+    <div class="ty-top-badge">CREATIVE PORTFOLIO 2026 — PRESENT</div>
+
+    <div class="x-grid">
+      <div class="x-row"><span class="x-mark">×</span><span class="x-mark">×</span><span class="x-mark">×</span></div>
+    </div>
+
+    <div class="ty-rainbow">
+      <div class="ty-bar" style="background:#e74c3c"></div>
+      <div class="ty-bar" style="background:#e67e22"></div>
+      <div class="ty-bar" style="background:#f1c40f"></div>
+      <div class="ty-bar" style="background:#2ecc71"></div>
+      <div class="ty-bar" style="background:#3498db"></div>
+      <div class="ty-bar" style="background:#9b59b6"></div>
+    </div>
+
+    <h2 class="ty-heading">THANK YOU</h2>
+    <div class="ty-rule"></div>
+    <div class="ty-contact-row">
+      <!-- Phone Link -->
+      <a href="tel:+919981658520" class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        Call me
+      </a>
+
+      <!-- Email link -->
+      <a href="mailto:harshvish1408@gmail.com" class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+        Email
+      </a>
+
+      <a href="https://www.Instagram.com/ft.hxrsh_" target="_blank" class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+        Instagram
+      </a>
+
+      <!-- GitHub Profile Link -->
+      <a href="https://github.com/HarshDev0" target="_blank" class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+        GitHub Profile
+      </a>
+
+      <!-- Download CV Link -->
+      <a href="Harsh_Vishwakarma_Web_Dev.pdf" download class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download CV
+      </a>
+    </div>
+  </section>
+
+  <script>
+    const els = document.querySelectorAll('.slide');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  </script>
+</body>
+
+</html>
